@@ -1,9 +1,7 @@
-package MethodSimplex;
-
 import javax.swing.JOptionPane;
 import java.text.DecimalFormat;
 
-public class MethodSimplex {
+public class App {
     static int indColEntra, indFilaSal, contMultiple=0;
     static double z=0, pivote;
         
@@ -21,9 +19,9 @@ public class MethodSimplex {
         
         n = (d+m+a); //"n" = "d" (#var. decision) + "m" (#var. holgura) + "a" (#var. artificial)
         
-        double cn[] = new double[n]; //Coeficientes de var. de Funcion Objetivo
-        double amn[][] = new double[m][n]; //Coeficientes de cada variable por restriccion
-        double bm[] = new double[m]; //Restriccion
+        double cn[] = new double[n]; //Coeficientes de var. de Función Objetivo
+        double amn[][] = new double[m][n]; //Coeficientes de cada variable por restricción
+        double bm[] = new double[m]; //Restricción
         double bk[] = new double[m];
         double ck[] = new double[m];
         int xk[] = new int[m];
@@ -38,7 +36,7 @@ public class MethodSimplex {
         mostrarTabla(funcion,cn,amn,bk,ck,xk,zn,zn_cn,m,n,d,a);
         condicionOptima(funcion,cn,amn,bk,ck,xk,zn,zn_cn,m,n,d,a); //Analizando si se llegó a la Solución Optima
     }
-    public static void ingresoCn(double cn[],int n,int d,int a){ //Z = Cn*Xn //Funcion Objetivo
+    public static void ingresoCn(double cn[],int n,int d,int a){ //Z = Cn*Xn //Función Objetivo
         for (int j = 0; j < n; j++){
             if (a==0){ //maximizar
                 if (j < d){
@@ -133,7 +131,7 @@ public class MethodSimplex {
         for (int j = 0; j < n; j++){
             zn_cn[j] = zn[j]-cn[j];
             if (zn_cn[j] == 0){
-                contMultiple++; //contando para SOLUCION MULTIPLE
+                contMultiple++; //contando para SOLUCIÓN MULTIPLE
             }
         }
     }
@@ -170,7 +168,7 @@ public class MethodSimplex {
             System.out.print("\t"+obj.format(zn_cn[j]));
         }
         
-        if (contMultiple > m){ //Verificando si es una SOLUCION MULTIPLE
+        if (contMultiple > m){ //Verificando si es una SOLUCIÓN MULTIPLE
             System.out.print("\n*** ESTA TABLA ES UNA SOLUCION MULTIPLE ***");
         }
         contMultiple=0;
@@ -183,7 +181,7 @@ public class MethodSimplex {
         int contOptima=0;
         for (int j = 0; j < n; j++){
             if (zn_cn[j] >= 0){ //maximizar
-               contOptima++; 
+                contOptima++; 
             }
         }
         if (contOptima == n){ //verifica que TODOS los zc-cn cumplan con ser 0 o positivos
@@ -238,10 +236,10 @@ public class MethodSimplex {
                 }
             }
             if ((bk[i]/amn[i][indColEntra]) <= 0){
-                contAcotado++; //contando para FUNCION NO ACOTADA
+                contAcotado++; //contando para FUNCIÓN NO ACOTADA
             }
         }
-        if (contAcotado == m){ //Verificando si es una FUNCION NO ACOTADA
+        if (contAcotado == m){ //Verificando si es una FUNCIÓN NO ACOTADA
             System.out.println("\n¡¡¡ FUNCION NO ACOTADA... ES IMPOSIBLE DE CONTINUAR !!!");
             System.exit(0); //Deteniendo el programa
         }
@@ -250,7 +248,7 @@ public class MethodSimplex {
                 contDegenerado++;
             }
         }
-        if (contDegenerado > 1){ //Verificando si es una SOLUCION DEGENERADA (debe haber más de 1 cociente menor positivo)
+        if (contDegenerado > 1){ //Verificando si es una SOLUCIÓN DEGENERADA (debe haber más de 1 cociente menor positivo)
             System.out.println("***** ESTE ES UN CASO DE DEGENERACION *****");
         }
         System.out.println("* FILA SALIENTE: "+(indFilaSal+1));

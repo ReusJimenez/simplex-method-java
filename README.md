@@ -1,4 +1,4 @@
-# 💻 Método Simplex en Java
+# 💻 Método Simplex Desktop en Java
 
 Este proyecto permite resolver problemas de optimización mediante el Método Simplex, un algoritmo eficiente para encontrar soluciones óptimas en programación lineal.
 
@@ -13,6 +13,10 @@ Este proyecto permite resolver problemas de optimización mediante el Método Si
 
 ## 📌 Ejemplo de Uso
 
+#### Ejecución:
+
+- En la terminal ejecutar: `java -cp bin App`
+
 #### Entrada:
 
 - Cantidad de restricciones: `2`
@@ -25,7 +29,8 @@ Este proyecto permite resolver problemas de optimización mediante el Método Si
 
 #### Salida esperada:
 
-Tablas iterativas del Método Simplex y la solución óptima si existe.
+- Tablas iterativas del Método Simplex y la solución óptima (si existe).
+![Salida esperada](https://github.com/user-attachments/assets/c5fccc9e-fae4-441f-863f-b3ef82f157a7)
 
 ## 🛠️ Tecnologías Utilizadas
 
